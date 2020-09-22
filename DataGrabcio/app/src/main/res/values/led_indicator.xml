@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ledIndWidth">0dp</dimen>
+    <dimen name="ledIndHeight">35dp</dimen>
+    <dimen name="ledIndMarginTopBottom">2dp</dimen>
+    <dimen name="ledIndMarginLeftRight">2dp</dimen>
+    <dimen name="borderThickness">2dp</dimen>
+    <color name="ledIndBackground">#00000000</color>
+</resources>

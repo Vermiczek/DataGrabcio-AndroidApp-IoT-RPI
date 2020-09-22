@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfigActivity">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp" >
+
+        <TextView
+            android:id="@+id/textViewIPConfig"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="IP address"
+
+
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/ipEditTextConfig"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:layout_below="@id/textViewIPConfig"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="textUri"
+            android:text="@+id/ipEditText" />
+
+        <TextView
+            android:id="@+id/textViewSampleTimeConfig"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/ipEditTextConfig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sample time (ms)"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/sampleTimeEditTextConfig"
+            android:layout_width="fill_parent"
+            android:layout_below="@id/textViewSampleTimeConfig"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            android:text="500" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

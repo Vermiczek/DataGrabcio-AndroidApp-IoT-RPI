@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DataActivity">
+
+    <LinearLayout
+        android:id="@+id/LinearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutButtons"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1">
+
+            <Button
+                android:id="@+id/startBtn"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:onClick="btns_onClick"
+                android:text="Start" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/stopBtn"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:onClick="btns_onClick"
+                android:text="Stop" />
+
+            <View
+                android:layout_width="160dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutConfigText"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1">
+
+            <TextView
+                android:id="@+id/textViewIP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:gravity="start"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textViewErrorMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ERROR"
+                android:textColor="@android:color/holo_red_dark"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textViewSampleTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:gravity="end"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/TempGraphEtiquete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:gravity="start"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Temperature"/>
+
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/dataGraphT"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"/>
+
+
+        <TextView
+            android:id="@+id/HumiGraphEtiquete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:gravity="start"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Humidity"/>
+
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/dataGraphH"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp" />
+        <TextView
+            android:id="@+id/PressGraphEtiquete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:gravity="start"
+            android:text="Pressure"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/dataGraphP"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"/>
+        <TextView
+            android:id="@+id/ShowURL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:gravity="start"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

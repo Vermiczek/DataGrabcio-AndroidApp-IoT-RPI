@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".JoystickActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="25dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutButtons"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1">
+
+            <Button
+                android:id="@+id/startBtn_joy"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:onClick="btns_onClick"
+                android:text="START" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+
+            <Button
+                android:id="@+id/stopBtn_joy"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:onClick="btns_onClick"
+                android:text="STOP"  />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:text="Joystick"
+            android:textSize="15sp" />
+
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/dataGraphJoystick"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+
+            />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

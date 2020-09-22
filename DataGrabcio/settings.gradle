@@ -1,0 +1,2 @@
+rootProject.name='DataGrabcio'
+include ':app'

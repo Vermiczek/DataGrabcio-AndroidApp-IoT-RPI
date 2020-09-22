@@ -1,0 +1,1704 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/urlText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:visibility="gone" />
+
+        <TableLayout
+            android:id="@+id/ledTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED00" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED10" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED20" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED30" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED40" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED50" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED60" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED70" />
+                </RelativeLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED01" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED11" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED21" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED31" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED41" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED51" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED61" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED71" />
+                </RelativeLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED02" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED12" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED22" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED32" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED42" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED52" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED62" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED72" />
+                </RelativeLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED03" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED13" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED23" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED33" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED43" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED53" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED63" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED73" />
+                </RelativeLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED04" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED14" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED24" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED34" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED44" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED54" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED64" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED74" />
+                </RelativeLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED05" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED15" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED25" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED35" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED45" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED55" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED65" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED75" />
+                </RelativeLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED06" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED16" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED26" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED36" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED46" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED56" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED66" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED76" />
+                </RelativeLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED07" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED17" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED27" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED37" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED47" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED57" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED67" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ledIndWidth"
+                    android:layout_height="@dimen/ledIndHeight"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/ledIndMarginTopBottom"
+                    android:layout_marginLeft="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginRight="@dimen/ledIndMarginLeftRight"
+                    android:layout_marginTop="@dimen/ledIndMarginTopBottom"
+                    android:layout_weight="1"
+                    android:background="@drawable/border">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/borderThickness"
+                        android:layout_marginLeft="@dimen/borderThickness"
+                        android:layout_marginRight="@dimen/borderThickness"
+                        android:layout_marginTop="@dimen/borderThickness"
+                        android:background="@color/ledIndBackground"
+                        android:onClick="changeLedIndicatorColor"
+                        android:tag="LED77" />
+                </RelativeLayout>
+
+            </TableRow>
+
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewR"
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:gravity="right|center_vertical"
+                    android:text="R"
+                    android:textSize="24sp" />
+
+                <SeekBar
+                    android:id="@+id/seekBarR"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:progressTint="#FF0000"
+                    android:thumbTint="#FF0000"
+                    app:tickMarkTint="#FF0000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewG"
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:gravity="right|center_vertical"
+                    android:text="G"
+                    android:textSize="24sp" />
+
+                <SeekBar
+                    android:id="@+id/seekBarG"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:progressTint="#00FF00"
+                    android:thumbTint="#00FF00"
+                    app:tickMarkTint="#00FF00" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewB"
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:gravity="right|center_vertical"
+                    android:text="B"
+                    android:textSize="24sp" />
+
+                <SeekBar
+                    android:id="@+id/seekBarB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:progressTint="#0000FF"
+                    android:thumbTint="#0000FF"
+                    app:tickMarkTint="#0000FF" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/clearBtn"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:onClick="clearAllLed"
+                android:text="CLEAR" />
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5.5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/border">
+                <View
+                    android:id="@+id/colorView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/borderThickness"
+                    android:layout_weight="1"
+                    android:background="@color/ledIndBackground"
+                    android:clickable="false" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/sendBtn"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:onClick="sendControlRequest"
+                android:text="SEND" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
