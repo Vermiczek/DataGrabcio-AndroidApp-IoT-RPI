@@ -1338,7 +1338,8 @@
                         android:layout_marginTop="@dimen/borderThickness"
                         android:background="@color/ledIndBackground"
                         android:onClick="changeLedIndicatorColor"
-                        android:tag="LED66" />
+                        android:tag="LED66"
+                        tools:ignore="OnClick" />
                 </RelativeLayout>
 
 
@@ -1553,7 +1554,8 @@
                         android:layout_marginTop="@dimen/borderThickness"
                         android:background="@color/ledIndBackground"
                         android:onClick="changeLedIndicatorColor"
-                        android:tag="LED77" />
+                        android:tag="LED77"
+                        tools:ignore="OnClick" />
                 </RelativeLayout>
 
             </TableRow>
@@ -1687,6 +1689,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/borderThickness"
                     android:layout_weight="1"
+                    android:onClick="sendCowRequest"
                     android:background="@color/ledIndBackground"
                     android:clickable="false" />
             </RelativeLayout>
@@ -1698,7 +1701,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:onClick="sendControlRequest"
-                android:text="SEND" />
+                android:text="SEND"
+                tools:ignore="OnClick" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

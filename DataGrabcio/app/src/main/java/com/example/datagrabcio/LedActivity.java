@@ -45,7 +45,7 @@ public class LedActivity extends AppCompatActivity {
     /* BEGIN colors */
 
     /* BEGIN request */
-    String url = "http://192.168.0.100/cgi-bin/led_disp.py";  ///< Default IoT server script URL
+    String url = "http://192.168.1.17/led_display.php";  ///< Default IoT server script URL
     private RequestQueue queue; ///< HTTP requests queue
     Map<String, String>  paramsClear = new HashMap<String, String>(); ///< HTTP POST data: clear display command
     /* END request */
@@ -60,7 +60,7 @@ public class LedActivity extends AppCompatActivity {
         ledOffColorVec = intToRgb(ledOffColor);
 
         ledActiveColor = ledOffColor;
-
+        ledActiveColorA = 0xff;
         ledActiveColorR = 0x00;
         ledActiveColorG = 0x00;
         ledActiveColorB = 0x00;
@@ -309,7 +309,7 @@ public class LedActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         if(!response.equals("OK"))
-                            Log.d("Response", "\n" + response);
+                            Log.d("Response", response);
                     }
                 },
                 new Response.ErrorListener()
@@ -374,4 +374,40 @@ public class LedActivity extends AppCompatActivity {
 
         queue.add(postRequest);
     }
+
+/*    void sendCowRequest()
+    {
+        url = urlText.getText().toString();
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("Response", response);
+                        // TODO: check if ACK is valid
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        String msg = error.getMessage();
+                        if(msg != null)
+                            Log.d("Error.Response", msg);
+                        else {
+                            // TODO: error type specific code
+                        }
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams() {
+                return paramsClear;
+            }
+        };
+        postRequest.setRetryPolicy(new DefaultRetryPolicy(5000, 0,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        queue.add(postRequest);
+    }*/
 }

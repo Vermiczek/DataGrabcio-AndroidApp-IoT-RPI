@@ -5,5 +5,5 @@
     <dimen name="ledIndMarginTopBottom">2dp</dimen>
     <dimen name="ledIndMarginLeftRight">2dp</dimen>
     <dimen name="borderThickness">2dp</dimen>
-    <color name="ledIndBackground">#00000000</color>
+    <color name="ledIndBackground">#FFAAAAAA</color>
 </resources>
