@@ -71,6 +71,15 @@
             tools:layout_editor_absoluteX="28dp"
             tools:layout_editor_absoluteY="489dp" />
 
+        <Button
+            android:id="@+id/ListBtn"
+            android:layout_width="352dp"
+            android:layout_height="89dp"
+            android:text="List View"
+            android:onClick="btns_onClick"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="489dp" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

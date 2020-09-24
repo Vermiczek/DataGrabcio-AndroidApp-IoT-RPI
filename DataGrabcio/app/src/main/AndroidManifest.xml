@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".LedActivity"></activity>
+        <activity android:name=".ListViewActivity"></activity>
+        <activity android:name=".LedActivity" />
         <activity android:name=".JoystickActivity" />
         <activity android:name=".Data2Activity" />
         <activity android:name=".DataActivity" />

@@ -26,6 +26,7 @@ public class LedActivity extends AppCompatActivity {
 
     /* BEGIN widgets */
     SeekBar redSeekBar, greenSeekBar, blueSeekBar;
+    String ipAddress = COMMON.DEFAULT_IP_ADDRESS;
     View colorView;     ///< Color preview
     EditText urlText;   ///< Input for IoT server script URL
     /* END widgets */
@@ -45,7 +46,9 @@ public class LedActivity extends AppCompatActivity {
     /* BEGIN colors */
 
     /* BEGIN request */
-    String url = "http://192.168.1.17/led_display.php";  ///< Default IoT server script URL
+   /* String url = "http://192.168.1.17/led_display.php"; */ ///< Default IoT server script URL
+    String url;
+    String cowUrl, saveUrl, loadUrl;
     private RequestQueue queue; ///< HTTP requests queue
     Map<String, String>  paramsClear = new HashMap<String, String>(); ///< HTTP POST data: clear display command
     /* END request */
@@ -54,7 +57,11 @@ public class LedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_led);
-
+        ipAddress = COMMON.CONFIG_IP_ADDRESS;
+        url = getURL(ipAddress);
+        cowUrl = "http://" + ipAddress + "/" + COMMON.COW;
+        saveUrl = "http://" + ipAddress + "/" + "save.php";
+        loadUrl = "http://" + ipAddress + "/" + "load.php";
         /* BEGIN Color data initialization */
         ledOffColor = ResourcesCompat.getColor(getResources(), R.color.ledIndBackground, null);
         ledOffColorVec = intToRgb(ledOffColor);
@@ -140,6 +147,10 @@ public class LedActivity extends AppCompatActivity {
      */
     public int argbToInt(int _a, int _r, int _g, int _b){
         return  (_a & 0xff) << 24 | (_r & 0xff) << 16 | (_g & 0xff) << 8 | (_b & 0xff);
+    }
+
+    private String getURL(String ip) {
+        return ("http://" + ip + "/" + COMMON.LED_BACKEND);
     }
 
     /**
@@ -276,6 +287,42 @@ public class LedActivity extends AppCompatActivity {
         sendClearRequest();
     }
 
+    public void Cow(View v) {
+        // Clear LED display GUI
+        TableLayout tb = (TableLayout)findViewById(R.id.ledTable);
+        View ledInd;
+        for(int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                ledInd = tb.findViewWithTag(ledIndexToTag(i, j));
+                ledInd.setBackgroundColor(ledOffColor);
+            }
+        }
+
+        // Clear LED display data model
+        clearDisplayModel();
+
+        // Clear physical LED display
+        sendCowRequest();
+    }
+
+    public void Load(View v) {
+        // Clear LED display GUI
+        TableLayout tb = (TableLayout)findViewById(R.id.ledTable);
+        View ledInd;
+        for(int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                ledInd = tb.findViewWithTag(ledIndexToTag(i, j));
+                ledInd.setBackgroundColor(ledOffColor);
+            }
+        }
+
+        // Clear LED display data model
+        clearDisplayModel();
+
+        // Clear physical LED display
+        sendLoadRequest();
+    }
+
     /**
      * @brief Generate HTTP POST request parameters for LED display control via IoT server script
      * @return HTTP POST request parameters as hash map (String keys, String values)
@@ -375,10 +422,9 @@ public class LedActivity extends AppCompatActivity {
         queue.add(postRequest);
     }
 
-/*    void sendCowRequest()
+    void sendCowRequest()
     {
-        url = urlText.getText().toString();
-        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+        StringRequest postRequest = new StringRequest(Request.Method.POST, cowUrl,
                 new Response.Listener<String>()
                 {
                     @Override
@@ -409,5 +455,75 @@ public class LedActivity extends AppCompatActivity {
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         queue.add(postRequest);
-    }*/
+    }
+
+    public void saveLed(View v)
+    {
+        StringRequest postRequest = new StringRequest(Request.Method.POST, saveUrl,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        if(!response.equals("OK"))
+                            Log.d("Response", response);
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        String msg = error.getMessage();
+                        if(msg != null)
+                            Log.d("Error.Response", msg);
+                        else {
+                            // TODO: error type specific code
+                        }
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams() {
+                return getDisplayControlParams();
+            }
+        };
+        postRequest.setRetryPolicy(new DefaultRetryPolicy(5000, 0,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        queue.add(postRequest);
+    }
+
+    void sendLoadRequest()
+    {
+        StringRequest postRequest = new StringRequest(Request.Method.POST, loadUrl,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("Response", response);
+                        // TODO: check if ACK is valid
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        String msg = error.getMessage();
+                        if(msg != null)
+                            Log.d("Error.Response", msg);
+                        else {
+                            // TODO: error type specific code
+                        }
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams() {
+                return paramsClear;
+            }
+        };
+        postRequest.setRetryPolicy(new DefaultRetryPolicy(5000, 0,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        queue.add(postRequest);
+    }
 }

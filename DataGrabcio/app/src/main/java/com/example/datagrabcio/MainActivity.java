@@ -57,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
                 openLed();
                 break;
             }
+            case R.id.ListBtn: {
+                openList();
+                break;
+            }
 
             default: {
                 // do nothing
@@ -109,5 +113,14 @@ public class MainActivity extends AppCompatActivity {
         configBundle.putString(COMMON.CONFIG_IP_ADDRESS, ipAdress);//to
         openLedIntent.putExtras(configBundle);
         startActivity(openLedIntent);
+    }
+
+    private void openList() {
+        Intent openListIntent = new Intent(this, ListViewActivity.class);
+        Bundle configBundle = new Bundle();
+        configBundle.putInt(COMMON.CONFIG_SAMPLE_TIME, sampleTime);
+        configBundle.putString(COMMON.CONFIG_IP_ADDRESS, ipAdress);//to
+        openListIntent.putExtras(configBundle);
+        startActivity(openListIntent);
     }
 }

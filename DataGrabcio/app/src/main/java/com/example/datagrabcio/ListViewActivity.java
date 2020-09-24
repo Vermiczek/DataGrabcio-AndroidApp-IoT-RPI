@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,43 +33,16 @@ import static java.lang.Double.isNaN;
 
 
 
-public class DataActivity extends AppCompatActivity {
+public class ListViewActivity extends AppCompatActivity {
 
     private String ipAddress;
     private int sampleTime;
+    private TextView textViewError;
     /* END config data */
 
-    /* BEGIN widgets */
-    private TextView textViewIP;
-    private TextView textViewSampleTime;
-    private TextView textViewError;
 
-    private GraphView dataGraphT;
-    private LineGraphSeries<DataPoint> dataSeriesT;
-    private final int dataGraphTMaxDataPointsNumber = 1000;
-    private final double dataGraphTMaxX = 100.0d;
-    private final double dataGraphTMinX = 0.0d;
-    private final double dataGraphTMaxY = 50.0d;
-    private final double dataGraphTMinY = 0.0d;
-
-    private GraphView dataGraphH;
-    private LineGraphSeries<DataPoint> dataSeriesH;
-    private final int dataGraphHMaxDataPointsNumber = 1000;
-    private final double dataGraphHMaxX = 10.0d;
-    private final double dataGraphHMinX = 0.0d;
-    private final double dataGraphHMaxY = 100.0d;
-    private final double dataGraphHMinY = 0.0d;
-
-    private GraphView dataGraphP;
-    private LineGraphSeries<DataPoint> dataSeriesP;
-    private final int dataGraphPMaxDataPointsNumber = 1000;
-    private final double dataGraphPMaxX = 10.0d;
-    private final double dataGraphPMinX = 0.0d;
-    private final double dataGraphPMaxY = 1000.0d;
-    private final double dataGraphPMinY = 0.0d;
-    private AlertDialog.Builder configAlterDialog;
     /* END widgets */
-
+    private AlertDialog.Builder configAlterDialog;
     /* BEGIN request timer */
     private RequestQueue queue;
     private Timer requestTimer;
@@ -79,33 +53,34 @@ public class DataActivity extends AppCompatActivity {
     private TimerTask requestTimerTask;
     private final Handler handler = new Handler();
     /* END request timer */
+    TextView ViewTemperature;
+    TextView ViewHumidity;
+    TextView ViewPressure;
+    TextView ViewRoll;
+    TextView ViewPitch;
+    TextView ViewYaw;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_data);
+        setContentView(R.layout.activity_list_view);
 
         ipAddress = COMMON.CONFIG_IP_ADDRESS;
         sampleTime = Integer.parseInt(COMMON.CONFIG_SAMPLE_TIME);
         /* BEGIN initialize widgets */
         /* BEGIN initialize TextViews */
-        textViewIP = findViewById(R.id.textViewIP);
-        textViewIP.setText(getIpAddressDisplayText(ipAddress));
 
-        textViewSampleTime = findViewById(R.id.textViewSampleTime);
-        textViewSampleTime.setText(getSampleTimeDisplayText(Integer.toString(sampleTime)));
-
-        textViewError = findViewById(R.id.textViewErrorMsg);
-        textViewError.setText("");
-
-        dataGraphH = (GraphView) findViewById(R.id.dataGraphH);
-        dataGraphT = (GraphView) findViewById(R.id.dataGraphT);
-        dataGraphP = (GraphView) findViewById(R.id.dataGraphP);
+        ViewTemperature = (TextView)findViewById(R. id.Temperature);
+        ViewHumidity = (TextView)findViewById(R. id.Humidity);
+        ViewPressure = (TextView)findViewById(R. id.Pressure);
+        ViewRoll = (TextView)findViewById(R. id.Roll);
+        ViewPitch = (TextView)findViewById(R. id.Pitch);
+        ViewYaw = (TextView)findViewById(R. id.Yaw);
 
         /* END initialize GraphView */
 
-        configAlterDialog = new AlertDialog.Builder(DataActivity.this);
+        configAlterDialog = new AlertDialog.Builder(ListViewActivity.this);
         configAlterDialog.setTitle("This will STOP data acquisition. Proceed?");
         configAlterDialog.setIcon(android.R.drawable.ic_dialog_alert);
         configAlterDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -118,42 +93,18 @@ public class DataActivity extends AppCompatActivity {
                 finish();
             }
         });
+
         /* END config alter dialog */
         /* END initialize widgets */
 
         // Initialize Volley request queue
 
         // Initialize Volley request queu
+        textViewError = findViewById(R.id.textViewErrorMsg);
+        textViewError.setText("");
 
-        dataSeriesT = new LineGraphSeries<>(new DataPoint[]{});
-        dataGraphT.addSeries(dataSeriesT);
-        dataGraphT.getViewport().setXAxisBoundsManual(true);
-        dataGraphT.getViewport().setMinX(dataGraphTMinX);
-        dataGraphT.getViewport().setMaxX(dataGraphTMaxX);
-        dataGraphT.getViewport().setYAxisBoundsManual(true);
-        dataGraphT.getViewport().setMinY(dataGraphTMinY);
-        dataGraphT.getViewport().setMaxY(dataGraphTMaxY);
-        dataSeriesH = new LineGraphSeries<>(new DataPoint[]{});
-        dataGraphH.addSeries(dataSeriesH);
-        dataGraphH.getViewport().setXAxisBoundsManual(true);
-        dataGraphH.getViewport().setMinX(dataGraphHMinX);
-        dataGraphH.getViewport().setMaxX(dataGraphHMaxX);
-        dataGraphH.getViewport().setYAxisBoundsManual(true);
-        dataGraphH.getViewport().setMinY(dataGraphHMinY);
-        dataGraphH.getViewport().setMaxY(dataGraphHMaxY);
-        dataSeriesP = new LineGraphSeries<>(new DataPoint[]{});
-        dataGraphP.addSeries(dataSeriesP);
-        dataGraphP.getViewport().setXAxisBoundsManual(true);
-        dataGraphP.getViewport().setMinX(dataGraphPMinX);
-        dataGraphP.getViewport().setMaxX(dataGraphPMaxX);
-        dataGraphP.getViewport().setYAxisBoundsManual(true);
-        dataGraphP.getViewport().setMinY(dataGraphPMinY);
-        dataGraphP.getViewport().setMaxY(dataGraphPMaxY);
-
-        queue = Volley.newRequestQueue(DataActivity.this);
-        TextView urlText;
-        urlText = findViewById(R.id. ShowURL);
-        urlText.setText(getURL(COMMON.CONFIG_IP_ADDRESS));
+        queue = Volley.newRequestQueue(ListViewActivity.this);
+        startRequestTimer();
     }
 
     private void errorHandling(int errorCode) {
@@ -247,23 +198,6 @@ public class DataActivity extends AppCompatActivity {
         }
     }
 
-
-    private void DrawCharts(double temp, double press, double humi)
-    {
-
-        // update plot series
-        double timeStamp = requestTimerTimeStamp / 1000.0; // [sec]
-        boolean scrollGraphT = (timeStamp > dataGraphTMaxX);
-        dataSeriesT.appendData(new DataPoint(timeStamp, temp), scrollGraphT, dataGraphTMaxDataPointsNumber);
-        dataGraphT.onDataChanged(true, true);
-        boolean scrollGraphH = (timeStamp > dataGraphHMaxX);
-        dataSeriesH.appendData(new DataPoint(timeStamp, humi), scrollGraphH, dataGraphHMaxDataPointsNumber);
-        dataGraphH.onDataChanged(true, true);
-        boolean scrollGraphP = (timeStamp > dataGraphPMaxX);
-        dataSeriesP.appendData(new DataPoint(timeStamp, press), scrollGraphP, dataGraphPMaxDataPointsNumber);
-        dataGraphP.onDataChanged(true, true);
-    }
-
     private long getValidTimeStampIncrease(long currentTime)
     {
         // Right after start remember current time and return 0
@@ -293,18 +227,6 @@ public class DataActivity extends AppCompatActivity {
         return (currentTime - requestTimerPreviousTime);
     }
 
-    private String getIpAddressDisplayText(String ip) {
-        return ("IP: " + ip);
-    }
-
-    /**
-     * @brief Create display text for requests sample time
-     * @param st Sample time in ms (string)
-     * @retval Display text for textViewSampleTime widget
-     */
-    private String getSampleTimeDisplayText(String st) {
-        return ("Sample time: " + st + " ms");
-    }
 
     /**
      * @brief Create JSON file URL from IoT server IP.
@@ -322,12 +244,10 @@ public class DataActivity extends AppCompatActivity {
 
             // IoT server IP address
             ipAddress = dataIntent.getStringExtra(COMMON.CONFIG_IP_ADDRESS);
-            textViewIP.setText(getIpAddressDisplayText(ipAddress));
 
             // Sample time (ms)
             String sampleTimeText = dataIntent.getStringExtra(COMMON.CONFIG_SAMPLE_TIME);
             sampleTime = Integer.parseInt(sampleTimeText);
-            textViewSampleTime.setText(getSampleTimeDisplayText(sampleTimeText));
         }
     }
     private double getRawDataFromResponse(String response, String item) {
@@ -364,13 +284,42 @@ public class DataActivity extends AppCompatActivity {
             double temperature = getRawDataFromResponse(response,"Temperature");
             double pressure = getRawDataFromResponse(response,"Pressure");
             double humidity = getRawDataFromResponse(response,"Humidity");
-            // get raw data from JSON response
-            DrawCharts(temperature, pressure, humidity);
-
-
+            double roll = getRawDataFromResponse(response,"Roll");
+            double pitch = getRawDataFromResponse(response,"Pitch");
+            double yaw = getRawDataFromResponse(response,"Yaw");
+            PrintMeasurements(temperature, "C", pressure, "hPA", humidity, "%", roll, pitch, yaw);
 
             // remember previous time stamp
             requestTimerPreviousTime = requestTimerCurrentTime;
+        }
+    }
+
+    private void PrintMeasurements(double temp, String tempUnit, double press, String pressUnit, double humi, String humiUnit, double roll, double pitch, double yaw)
+    {
+
+        // update plot series
+        if(!Double.isNaN(temp)) {
+            ViewTemperature.setText("Temperature: " + temp);
+        }
+
+        if(!Double.isNaN(press)) {
+            ViewPressure.setText("Pressure: " + press);
+        }
+
+        if(!Double.isNaN(humi)) {
+            ViewHumidity.setText("Humidity: " + humi);
+        }
+
+        if(!Double.isNaN(roll)) {
+            ViewRoll.setText("Roll: " + roll);
+        }
+
+        if(!Double.isNaN(pitch)) {
+            ViewPitch.setText("Pitch: " + pitch);
+        }
+
+        if(!Double.isNaN(yaw)) {
+            ViewYaw.setText("Yaw: " + yaw);
         }
     }
 }

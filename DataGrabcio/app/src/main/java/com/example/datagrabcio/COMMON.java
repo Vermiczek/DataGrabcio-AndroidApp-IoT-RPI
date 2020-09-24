@@ -18,4 +18,6 @@ public final class COMMON {
 
     // IoT server data
     public final static String FILE_NAME = "chartsdata.json";
+    public final static String LED_BACKEND = "led_display.php";
+    public final static String COW = "cow.php";
 }
