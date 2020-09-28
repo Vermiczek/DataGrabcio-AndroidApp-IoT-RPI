@@ -19,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
@@ -45,15 +46,15 @@ public class DataActivity extends AppCompatActivity {
 
     private GraphView dataGraphT;
     private LineGraphSeries<DataPoint> dataSeriesT;
-    private final int dataGraphTMaxDataPointsNumber = 1000;
-    private final double dataGraphTMaxX = 100.0d;
+    private int dataGraphTMaxDataPointsNumber;
+    private final double dataGraphTMaxX = 10.0d;
     private final double dataGraphTMinX = 0.0d;
-    private final double dataGraphTMaxY = 50.0d;
-    private final double dataGraphTMinY = 0.0d;
+    private final double dataGraphTMaxY = 100.0d;
+    private final double dataGraphTMinY = -50.0d;
 
     private GraphView dataGraphH;
     private LineGraphSeries<DataPoint> dataSeriesH;
-    private final int dataGraphHMaxDataPointsNumber = 1000;
+    private int dataGraphHMaxDataPointsNumber;
     private final double dataGraphHMaxX = 10.0d;
     private final double dataGraphHMinX = 0.0d;
     private final double dataGraphHMaxY = 100.0d;
@@ -61,10 +62,10 @@ public class DataActivity extends AppCompatActivity {
 
     private GraphView dataGraphP;
     private LineGraphSeries<DataPoint> dataSeriesP;
-    private final int dataGraphPMaxDataPointsNumber = 1000;
+    private int dataGraphPMaxDataPointsNumber;
     private final double dataGraphPMaxX = 10.0d;
     private final double dataGraphPMinX = 0.0d;
-    private final double dataGraphPMaxY = 1000.0d;
+    private final double dataGraphPMaxY = 1400.0d;
     private final double dataGraphPMinY = 0.0d;
     private AlertDialog.Builder configAlterDialog;
     /* END widgets */
@@ -88,6 +89,9 @@ public class DataActivity extends AppCompatActivity {
 
         ipAddress = COMMON.CONFIG_IP_ADDRESS;
         sampleTime = Integer.parseInt(COMMON.CONFIG_SAMPLE_TIME);
+        dataGraphHMaxDataPointsNumber=Integer.parseInt(COMMON.CONFIG_SAMPLE_LIMIT);
+        dataGraphTMaxDataPointsNumber=Integer.parseInt(COMMON.CONFIG_SAMPLE_LIMIT);
+        dataGraphPMaxDataPointsNumber=Integer.parseInt(COMMON.CONFIG_SAMPLE_LIMIT);
         /* BEGIN initialize widgets */
         /* BEGIN initialize TextViews */
         textViewIP = findViewById(R.id.textViewIP);
@@ -149,6 +153,12 @@ public class DataActivity extends AppCompatActivity {
         dataGraphP.getViewport().setYAxisBoundsManual(true);
         dataGraphP.getViewport().setMinY(dataGraphPMinY);
         dataGraphP.getViewport().setMaxY(dataGraphPMaxY);
+        GridLabelRenderer gridLabel = dataGraphT.getGridLabelRenderer();
+        gridLabel.setVerticalAxisTitle("Celsius");
+        GridLabelRenderer gridLabel2 = dataGraphH.getGridLabelRenderer();
+        gridLabel2.setVerticalAxisTitle("%");
+        GridLabelRenderer gridLabel3 =  dataGraphP.getGridLabelRenderer();
+        gridLabel3.setVerticalAxisTitle("hPa");
 
         queue = Volley.newRequestQueue(DataActivity.this);
         TextView urlText;

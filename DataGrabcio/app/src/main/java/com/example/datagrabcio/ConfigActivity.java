@@ -12,6 +12,7 @@ public class ConfigActivity extends AppCompatActivity {
     /* BEGIN config textboxes */
     EditText ipEditText;
     EditText sampleTimeEditText;
+    EditText sampleLimitEditText;
     /* END config textboxes */
 
     @Override
@@ -31,6 +32,9 @@ public class ConfigActivity extends AppCompatActivity {
         sampleTimeEditText = findViewById(R.id.sampleTimeEditTextConfig);
         int st = configBundle.getInt(COMMON.CONFIG_SAMPLE_TIME, COMMON.DEFAULT_SAMPLE_TIME);
         sampleTimeEditText.setText(COMMON.CONFIG_SAMPLE_TIME);
+        sampleLimitEditText = findViewById(R.id.sampleLimitEditTextConfig);
+        sampleLimitEditText.setText(COMMON.CONFIG_SAMPLE_LIMIT);
+
     }
 
     @Override
@@ -38,6 +42,7 @@ public class ConfigActivity extends AppCompatActivity {
         Intent intent = new Intent();
         COMMON.CONFIG_IP_ADDRESS=ipEditText.getText().toString();
         COMMON.CONFIG_SAMPLE_TIME=sampleTimeEditText.getText().toString();
+        COMMON.CONFIG_SAMPLE_LIMIT=sampleLimitEditText.getText().toString();
         setResult(RESULT_OK, intent);
         finish();
         super.onBackPressed();

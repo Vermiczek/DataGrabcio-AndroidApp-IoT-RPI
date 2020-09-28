@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ConfigActivity">
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="16dp"
@@ -51,5 +51,27 @@
             android:importantForAutofill="no"
             android:inputType="numberDecimal"
             android:text="500" />
+
+        <TextView
+            android:id="@+id/textViewSampleLimitConfig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ipEditTextConfig"
+            android:layout_marginTop="124dp"
+            android:gravity="center_horizontal"
+            android:text="Sample limit"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/sampleLimitEditTextConfig"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewSampleTimeConfig"
+            android:layout_marginTop="140dp"
+            android:layout_marginBottom="25dp"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            android:text="1000" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

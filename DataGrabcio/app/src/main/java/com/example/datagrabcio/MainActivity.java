@@ -62,6 +62,11 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
 
+            case R.id.TblBtn: {
+                openTable();
+                break;
+            }
+
             default: {
                 // do nothing
             }
@@ -122,5 +127,13 @@ public class MainActivity extends AppCompatActivity {
         configBundle.putString(COMMON.CONFIG_IP_ADDRESS, ipAdress);//to
         openListIntent.putExtras(configBundle);
         startActivity(openListIntent);
+    }
+    private void openTable() {
+        Intent opentblIntent = new Intent(this, TableviewActivity.class);
+        Bundle configBundle = new Bundle();
+        configBundle.putInt(COMMON.CONFIG_SAMPLE_TIME, sampleTime);
+        configBundle.putString(COMMON.CONFIG_IP_ADDRESS, ipAdress);//to
+        opentblIntent.putExtras(configBundle);
+        startActivity(opentblIntent);
     }
 }

@@ -421,7 +421,7 @@ public class LedActivity extends AppCompatActivity {
 
         queue.add(postRequest);
     }
-
+   //secret function
     void sendCowRequest()
     {
         StringRequest postRequest = new StringRequest(Request.Method.POST, cowUrl,
@@ -456,7 +456,7 @@ public class LedActivity extends AppCompatActivity {
 
         queue.add(postRequest);
     }
-
+    //save current led matrix state to a file
     public void saveLed(View v)
     {
         StringRequest postRequest = new StringRequest(Request.Method.POST, saveUrl,
@@ -492,6 +492,7 @@ public class LedActivity extends AppCompatActivity {
         queue.add(postRequest);
     }
 
+    //request loading of a saved led matrix state
     void sendLoadRequest()
     {
         StringRequest postRequest = new StringRequest(Request.Method.POST, loadUrl,

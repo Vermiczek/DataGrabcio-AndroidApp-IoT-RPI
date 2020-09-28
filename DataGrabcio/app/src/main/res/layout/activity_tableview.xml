@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".TableviewActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="1"
+    >
+
+    <Button
+        android:id="@+id/ListBtn"
+        android:layout_width="352dp"
+        android:layout_height="150dp"
+        android:text="Dynamiczna tablica"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:background="@android:color/holo_blue_dark"
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="489dp" />
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/name1"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/value1"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/unit1"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/name2"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/value2"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/unit2"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/name3"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/value3"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/unit3"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:id="@+id/name4"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/value4"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/unit4"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:id="@+id/name5"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/value5"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/unit5"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:id="@+id/name6"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/value6"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/unit6"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:id="@+id/name7"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/value7"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/unit7"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:id="@+id/name8"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/value8"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/unit8"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:id="@+id/name9"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/value9"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/unit9"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:id="@+id/name10"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/value10"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/unit10"
+            android:layout_width="100dip"
+            android:padding="3dip" />
+    </TableRow>
+    <LinearLayout
+        android:id="@+id/linearLayoutButtons"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+
+    </LinearLayout>
+
+</TableLayout>

@@ -29,7 +29,7 @@
         <Button
             android:id="@+id/ConfigButton"
             android:layout_width="352dp"
-            android:layout_height="89dp"
+            android:layout_height="80dp"
             android:text="Konfiguracja"
             android:onClick="btns_onClick"
             tools:layout_editor_absoluteX="28dp"
@@ -38,7 +38,7 @@
         <Button
             android:id="@+id/PrzebiegiTHPBtn"
             android:layout_width="352dp"
-            android:layout_height="89dp"
+            android:layout_height="60dp"
             android:onClick="btns_onClick"
             android:text="Przebiegi czasowe THP"
             tools:layout_editor_absoluteX="28dp"
@@ -47,7 +47,7 @@
         <Button
             android:id="@+id/PrzebiegiRPYBtn"
             android:layout_width="352dp"
-            android:layout_height="89dp"
+            android:layout_height="60dp"
             android:onClick="btns_onClick"
             android:text="Przebiegi czasowe RPY"
             tools:layout_editor_absoluteX="28dp"
@@ -56,7 +56,7 @@
         <Button
             android:id="@+id/PrzebiegJoystickBtn"
             android:layout_width="352dp"
-            android:layout_height="89dp"
+            android:layout_height="60dp"
             android:onClick="btns_onClick"
             android:text="Joystick"
             tools:layout_editor_absoluteX="28dp"
@@ -65,7 +65,7 @@
         <Button
             android:id="@+id/DiodyBtn"
             android:layout_width="352dp"
-            android:layout_height="89dp"
+            android:layout_height="60dp"
             android:text="Sterowanie diodami"
             android:onClick="btns_onClick"
             tools:layout_editor_absoluteX="28dp"
@@ -74,8 +74,17 @@
         <Button
             android:id="@+id/ListBtn"
             android:layout_width="352dp"
-            android:layout_height="89dp"
-            android:text="List View"
+            android:layout_height="60dp"
+            android:text="Kalkulator jednostek"
+            android:onClick="btns_onClick"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="489dp" />
+
+        <Button
+            android:id="@+id/TblBtn"
+            android:layout_width="352dp"
+            android:layout_height="60dp"
+            android:text="Dynamiczna tablica"
             android:onClick="btns_onClick"
             tools:layout_editor_absoluteX="28dp"
             tools:layout_editor_absoluteY="489dp" />

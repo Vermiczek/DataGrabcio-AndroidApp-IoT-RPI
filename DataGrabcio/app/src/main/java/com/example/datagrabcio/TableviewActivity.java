@@ -1,7 +1,5 @@
 package com.example.datagrabcio;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,36 +8,34 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.PointsGraphSeries;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.Vector;
 
-public class JoystickActivity extends AppCompatActivity {
+public class TableviewActivity extends AppCompatActivity {
+
 
     int sampleTime = COMMON.DEFAULT_SAMPLE_TIME;
     String ipAddress = COMMON.DEFAULT_IP_ADDRESS;
-    TextView z_val;
+    int sampleQuantity = 1000;
+    TextView TextViewName;
+    TextView TextViewVal;
+    TextView TextViewUnit;
+    int BufferSize;
 
-    /* Graph1 */
-    private GraphView dataGraphJoystick;
-    private PointsGraphSeries<DataPoint> dataSeriesJoystick;
-    private final int dataGraphMaxDataPointsNumber = 1000;
-    private final double dataGraphMaxX = 30.0d;
-    private final double dataGraphMinX = -30.0d;
-    private final double dataGraphMaxY = 30.0d;
-    private final double dataGraphMinY = -30.0d;
 
     /* BEGIN request timer */
     private RequestQueue queue;
@@ -53,63 +49,38 @@ public class JoystickActivity extends AppCompatActivity {
     /* END request timer */
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_joystick);
+        setContentView(R.layout.activity_tableview);
 
         // get the Intent that started this Activity
+        Intent intent = getIntent();
+
         // get the Bundle that stores the data of this Activity
-        ipAddress = COMMON.CONFIG_IP_ADDRESS;
-        sampleTime = Integer.parseInt(COMMON.CONFIG_SAMPLE_TIME);
+        Bundle configBundle = intent.getExtras();
+        ipAddress = configBundle.getString(COMMON.CONFIG_IP_ADDRESS, COMMON.DEFAULT_IP_ADDRESS);
+
+        sampleTime = configBundle.getInt(COMMON.CONFIG_SAMPLE_TIME, COMMON.DEFAULT_SAMPLE_TIME);
 
 
-        /* BEGIN initialize GraphView1 */
-        // https://github.com/jjoe64/GraphView/wiki
-        dataGraphJoystick = (GraphView) findViewById(R.id.dataGraphJoystick);
-        dataSeriesJoystick = new PointsGraphSeries<>(new DataPoint[]{});
-        dataGraphJoystick.addSeries(dataSeriesJoystick);
-        dataGraphJoystick.getViewport().setXAxisBoundsManual(true);
-        dataGraphJoystick.getViewport().setMinX(dataGraphMinX);
-        dataGraphJoystick.getViewport().setMaxX(dataGraphMaxX);
-
-        dataGraphJoystick.getViewport().setYAxisBoundsManual(true);
-        dataGraphJoystick.getViewport().setMinY(dataGraphMinY);
-        dataGraphJoystick.getViewport().setMaxY(dataGraphMaxY);
-        /* END initialize GraphView */
 
         // Initialize Volley request queue
-        queue = Volley.newRequestQueue(JoystickActivity.this);
-
+        queue = Volley.newRequestQueue(TableviewActivity.this);
+        startRequestTimer();
     }
-
     /**
-     * @param ipAddress IP address (string)
      * @brief Create JSON file URL from IoT server IP.
+     * @param ipAddress IP address (string)
      * @retval GET request URL
      */
     private String getURL(String ipAddress) {
-        return ("http://" + ipAddress + "/" + COMMON.FILE_NAME);
-    }
-
-    public void btns_onClick(View v) {
-        switch (v.getId()) {
-            case R.id.startBtn_joy: {
-                startRequestTimer();
-                break;
-            }
-            case R.id.stopBtn_joy: {
-                stopRequestTimerTask();
-                break;
-            }
-            default: {
-                // do nothing
-            }
-        }
+        return ("http://" + ipAddress + "/" + COMMON.TABLE_FILENAME);
     }
 
     private void errorHandling(int errorCode) {
-        switch (errorCode) {
+        switch(errorCode) {
             case COMMON.ERROR_TIME_STAMP:
                 //textViewError.setText("ERR #1");
                 Log.d("errorHandling", "Request time stamp error.");
@@ -132,7 +103,7 @@ public class JoystickActivity extends AppCompatActivity {
     /* @brief Starts new 'Timer' (if currently not exist) and schedules periodic task.
      */
     private void startRequestTimer() {
-        if (requestTimer == null) {
+        if(requestTimer == null) {
             // set a new Timer
             requestTimer = new Timer();
 
@@ -157,25 +128,28 @@ public class JoystickActivity extends AppCompatActivity {
         }
     }
 
-    private double getRawDataFromResponse(String response, String item) {
-        JSONObject jObject;
-        int t = 0;
+    private String getRawDataFromResponse(String response, Integer item,String name) {
+        JSONArray jObject;
+        JSONObject x = null;
+        String out = null;
 
         // Create generic JSON object form string
         try {
-            jObject = new JSONObject(response);
+            jObject = new JSONArray(response);
         } catch (JSONException e) {
             e.printStackTrace();
-            return t;
+            return out;
         }
 
         // Read chart data form JSON object
         try {
-            t = (int) jObject.get(item);
+            x = jObject.getJSONObject(item);
+            out = x.get(name).toString();
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return t;
+
+        return out;
     }
 
 
@@ -186,10 +160,9 @@ public class JoystickActivity extends AppCompatActivity {
         requestTimerTask = new TimerTask() {
             public void run() {
                 handler.post(new Runnable() {
-                    public void run() {
-                        sendGetRequest();
-                    }
+                    public void run() { sendGetRequest();}
                 });
+
             }
         };
     }
@@ -197,7 +170,8 @@ public class JoystickActivity extends AppCompatActivity {
     /**
      * @brief Sending GET request to IoT server using 'Volley'.
      */
-    private void sendGetRequest() {
+    private void sendGetRequest()
+    {
         // Instantiate the RequestQueue with Volley
         // https://javadoc.io/doc/com.android.volley/volley/1.1.0-rc2/index.html
         String url = getURL(ipAddress);
@@ -207,14 +181,16 @@ public class JoystickActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        responseHandling(response);
+                        try {
+                            responseHandling(response);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
-                    public void onErrorResponse(VolleyError error) {
-                        errorHandling(COMMON.ERROR_RESPONSE);
-                    }
+                    public void onErrorResponse(VolleyError error) { errorHandling(COMMON.ERROR_RESPONSE); }
                 });
 
         // Add the request to the RequestQueue.
@@ -222,12 +198,15 @@ public class JoystickActivity extends AppCompatActivity {
     }
 
 
+
     /**
      * @brief Validation of client-side time stamp based on 'SystemClock'.
      */
-    private long getValidTimeStampIncrease(long currentTime) {
+    private long getValidTimeStampIncrease(long currentTime)
+    {
         // Right after start remember current time and return 0
-        if (requestTimerFirstRequest) {
+        if(requestTimerFirstRequest)
+        {
             requestTimerPreviousTime = currentTime;
             requestTimerFirstRequest = false;
             return 0;
@@ -235,8 +214,9 @@ public class JoystickActivity extends AppCompatActivity {
 
         // After each stop return value not greater than sample time
         // to avoid "holes" in the plot
-        if (requestTimerFirstRequestAfterStop) {
-            if ((currentTime - requestTimerPreviousTime) > sampleTime)
+        if(requestTimerFirstRequestAfterStop)
+        {
+            if((currentTime - requestTimerPreviousTime) > sampleTime)
                 requestTimerPreviousTime = currentTime - sampleTime;
 
             requestTimerFirstRequestAfterStop = false;
@@ -244,60 +224,110 @@ public class JoystickActivity extends AppCompatActivity {
 
         // If time difference is equal zero after start
         // return sample time
-        if ((currentTime - requestTimerPreviousTime) == 0)
+        if((currentTime - requestTimerPreviousTime) == 0)
             return sampleTime;
 
         // Return time difference between current and previous request
         return (currentTime - requestTimerPreviousTime);
     }
 
-    private DataPoint[] GenerateDataPoint(int x, int y) {
-        int count = 1;
-        DataPoint[] values = new DataPoint[1];
-        for (int i = 0; i < count; i++) {
-            int horizontal = x;
-            int vertical = y;
-            DataPoint v = new DataPoint(horizontal, vertical);
-            values[i] = v;
+   //initializes as many list TextViews as needed
+    private void InitializeTextView(int BufferItr, int id) {
+        while (BufferItr < BufferSize) {
+
+            TextViewName = (TextView) findViewById(getResources().getIdentifier("name" + id, "id", getPackageName()));
+            TextViewName.setText(null);
+
+
+            TextViewVal = (TextView) findViewById(getResources().getIdentifier("value" + id, "id", getPackageName()));
+            TextViewVal.setText(null);
+
+
+            TextViewUnit = (TextView) findViewById(getResources().getIdentifier("unit" + id, "id", getPackageName()));
+            TextViewUnit.setText(null);
+            id++;
+            BufferItr = BufferItr + 3;
         }
-        return values;
     }
 
+    //writes down data from buffer to text view
+    private void writeDown(int id, Vector<String>Buffer,int BufferItr){
+    while (BufferItr < Buffer.size()) {
 
-    /**
-     * @brief GET response handling - chart data series updated with IoT server data.
-     */
-    private void DrawChart(int x, int y) {
-        // update plot series
-        double timeStamp = requestTimerTimeStamp / 1000.0; // [sec]
+        String name = Buffer.get(BufferItr);
+        String value = Buffer.get(BufferItr + 1);
+        String unit = Buffer.get(BufferItr + 2);
+        TextViewName = (TextView)findViewById(getResources().getIdentifier("name"+ id, "id", getPackageName()));
+        TextViewName.setText(name);
 
-        boolean scrollGraph1 = false;
-        dataSeriesJoystick.resetData(GenerateDataPoint(x, y));
-        dataSeriesJoystick.appendData(new DataPoint(x, y), scrollGraph1, dataGraphMaxDataPointsNumber);
 
-        // refresh chart
-        dataGraphJoystick.onDataChanged(true, true);
+        TextViewVal= (TextView) findViewById(getResources().getIdentifier("value"+id, "id", getPackageName()));
+        TextViewVal.setText(value);
 
-    }
 
-    private void responseHandling(String response) {
-        if (requestTimer != null) {
+        TextViewUnit = (TextView) findViewById(getResources().getIdentifier("unit"+id, "id", getPackageName()));
+        TextViewUnit.setText(unit);
+        id++;
+        BufferItr = BufferItr + 3;
+    }}
+
+    //handles response
+    private void responseHandling(String response) throws JSONException {
+        if(requestTimer != null) {
             // get time stamp with SystemClock
             long requestTimerCurrentTime = SystemClock.uptimeMillis(); // current time
             requestTimerTimeStamp += getValidTimeStampIncrease(requestTimerCurrentTime);
+            double timeStamp = requestTimerTimeStamp / 1000.0; // [sec]
 
-            // get raw data from JSON response
-            int x = (int) getRawDataFromResponse(response, "x");
-            int y = (int) getRawDataFromResponse(response, "y");
+            //declarations of data parameters, buffer and an iterators
+            String Name = "wrong data";
+            String Value = "wrong data";
+            String Unit = "wrong data";
+            int itr = 0;
+            Vector<String>Buffer  = new Vector<String>();
+            int BufferItr = 0;
+            int id = 1;
 
 
-            DrawChart(x, y);
+
+
+            //iterates on received json table and acquires data
+            while (true) {
+                Name = getRawDataFromResponse(response, itr, "name");
+                if (Name == null) {
+                    break;
+                }
+                Value = getRawDataFromResponse(response, itr, "value");
+                if (Value == null) {
+                    break;
+                }
+                Unit = getRawDataFromResponse(response, itr, "unit");
+                if (Unit == null) {
+                    break;
+                }
+                Buffer.add(Name);
+                Buffer.add(Value);
+                Buffer.add(Unit);
+                itr = itr + 1;
+            }
+
+
+
+           //iterates through the buffer table
+
+            InitializeTextView(BufferItr, id);
+
+            id=1;
+            BufferItr = 0;
+            //set data to textview
+            writeDown(id, Buffer, BufferItr);
+
+            Buffer.clear();
+
 
             // remember previous time stamp
             requestTimerPreviousTime = requestTimerCurrentTime;
         }
     }
-    /**
-     * @brief Swaps old Datapoints for new ones.
-     */
+
 }

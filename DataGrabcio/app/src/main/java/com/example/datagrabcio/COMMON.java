@@ -10,6 +10,8 @@ public final class COMMON {
 
     public  static String CONFIG_SAMPLE_TIME = "100";
     public final static int DEFAULT_SAMPLE_TIME = 100;
+    public static String CONFIG_SAMPLE_LIMIT = "1000";
+    public final static int DEFAULT_SAMPLE_LIMIT = 1000;
 
     // error codes
     public final static int ERROR_TIME_STAMP = -1;
@@ -18,6 +20,7 @@ public final class COMMON {
 
     // IoT server data
     public final static String FILE_NAME = "chartsdata.json";
+    public final static String TABLE_FILENAME = "tableview.json";
     public final static String LED_BACKEND = "led_display.php";
     public final static String COW = "cow.php";
 }
