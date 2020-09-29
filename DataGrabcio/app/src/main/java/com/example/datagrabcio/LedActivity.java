@@ -287,6 +287,7 @@ public class LedActivity extends AppCompatActivity {
         sendClearRequest();
     }
 
+
     public void Cow(View v) {
         // Clear LED display GUI
         TableLayout tb = (TableLayout)findViewById(R.id.ledTable);

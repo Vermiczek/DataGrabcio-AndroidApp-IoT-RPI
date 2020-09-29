@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+   //opens config
     private void openConfig() {
         Intent openConfigIntent = new Intent(this, ConfigActivity.class);
         Bundle configBundle = new Bundle();
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         openConfigIntent.putExtras(configBundle);
         startActivityForResult(openConfigIntent, COMMON.REQUEST_CODE_CONFIG);
     }
-
+    //opens enviromental charts
     private void openData() {
         Intent openDataIntent = new Intent(this, DataActivity.class);
         Bundle configBundle = new Bundle();
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         openDataIntent.putExtras(configBundle);
         startActivity(openDataIntent);
     }
-
+    //opens angle charts
     private void openData2() {
         Intent openData2Intent = new Intent(this, Data2Activity.class);
         Bundle configBundle = new Bundle();
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         openData2Intent.putExtras(configBundle);
         startActivity(openData2Intent);
     }
-
+    //opens joystick chart
     private void openJoystick() {
         Intent openJoystickIntent = new Intent(this, JoystickActivity.class);
         Bundle configBundle = new Bundle();
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(openJoystickIntent);
     }
 
-
+    //opens led matrix
     private void openLed() {
         Intent openLedIntent = new Intent(this, LedActivity.class);
         Bundle configBundle = new Bundle();
@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(openLedIntent);
     }
 
+    //opens unfinished view with unit calculator and config
     private void openList() {
         Intent openListIntent = new Intent(this, ListViewActivity.class);
         Bundle configBundle = new Bundle();
@@ -128,6 +129,8 @@ public class MainActivity extends AppCompatActivity {
         openListIntent.putExtras(configBundle);
         startActivity(openListIntent);
     }
+
+    //opens the dynamic table
     private void openTable() {
         Intent opentblIntent = new Intent(this, TableviewActivity.class);
         Bundle configBundle = new Bundle();
